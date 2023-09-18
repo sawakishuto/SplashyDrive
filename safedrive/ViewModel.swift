@@ -21,7 +21,7 @@ class MotionSensor: ObservableObject {
             motionManager.startAccelerometerUpdates(to: .main) { (data, error) in
                 if let accelerationData = data?.acceleration {
                     self.zAcceleration = accelerationData.z
-                    if self.zAcceleration < -0.4 {
+                    if self.zAcceleration <= -0.4 {
                         if self.timer == nil {
                             self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
                                 self?.extimerCount += 0.1
@@ -31,7 +31,7 @@ class MotionSensor: ObservableObject {
                         self.timer?.invalidate()
                         self.timer = nil
                         }
-                    if self.zAcceleration < -0.3 && self.zAcceleration > -0.4{
+                    if self.zAcceleration <= -0.3 && self.zAcceleration > -0.4{
                         if self.midtimer == nil {
                             self.midtimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
                                 self?.midExtimerCount += 0.1

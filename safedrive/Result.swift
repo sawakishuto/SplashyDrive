@@ -87,7 +87,7 @@ struct Result: View {
                 .foregroundColor(.red)
                 .padding(.bottom,10)
                 VStack{
-                    Text("−0.3G以上-0.4G以下")
+                    Text("−0.3G以上-0.4G未満")
                     Text(String(format: "%.2f", midexcount ) + "秒")
                         .animation(.easeIn)
                 }

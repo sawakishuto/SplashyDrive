@@ -47,22 +47,29 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
+            Text(String(format: "%.2f",sensor.zAcceleration))
+                .font(.system(size: 30))
+                .fontWeight(.bold)
             VStack{
                 Text(pattern.alartState)
                     .font(.system(size: 30))
                     .foregroundColor(sensor.zAcceleration > -0.4 ? .black : .white)
                     .fontWeight(.black)
-                Text(String(floor(sensor.zAcceleration
-                                  * 100)/100) + "G")
-                .padding(.bottom,10)
                 Text("経過時間：\(count)秒")
                     .padding(.bottom,4)
-                Text("0.4G以上：\(sensor.extimerCount)秒")
-                    .padding(.bottom,4)
-                    .foregroundColor(.white)
-                    .fontWeight(.bold)
-                Text("0.2G以上：\(sensor.midExtimerCount)秒")
-                    .fontWeight(.bold)
+                VStack{
+                    Text("ブレーキによってかかっているG")
+                        .fontWeight(.bold)
+                    Text("-0.4G以上：\(sensor.extimerCount)秒")
+                        .padding(.vertical,4)
+                        .foregroundColor(.red)
+                        .fontWeight(.bold)
+                    Text("-0.3G以上：\(sensor.midExtimerCount)秒")
+                        .fontWeight(.bold)
+                }
+                .padding(10)
+                .background(Color.white)
+                .cornerRadius(20)
             }
             .frame(maxWidth: .infinity)
             .frame(height: 200)
@@ -117,6 +124,7 @@ struct ContentView: View {
                 count = 0
             } label:{
                 Text("リセット")
+                    .foregroundColor(.white)
             }
             .padding(.top, 20)
         }
@@ -126,7 +134,7 @@ struct ContentView: View {
         .resizable()
         .scaledToFill()
         .frame(height: 1000)
-        .padding(.top, 200))
+        .padding(.top, 230))
     }
 }
 
