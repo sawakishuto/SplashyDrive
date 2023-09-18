@@ -36,9 +36,9 @@ struct ContentView: View {
     @State var isMeasuring: Bool = false
     @ObservedObject var sensor = MotionSensor()
     var pattern: Pattern {
-        if sensor.zAcceleration < -0.4 {
+        if sensor.yAcceleration < -0.4 {
             return .out
-        } else if sensor.zAcceleration <= -0.3 && sensor.zAcceleration >= -0.4 {
+        } else if sensor.yAcceleration <= -0.3 && sensor.yAcceleration >= -0.4 {
             return .mid
         } else {
             return .safe
@@ -47,13 +47,13 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Text(String(format: "%.2f",sensor.zAcceleration) + "G")
+            Text(String(format: "%.2f",sensor.yAcceleration) + "G")
                 .font(.system(size: 30))
                 .fontWeight(.bold)
             VStack{
                 Text(pattern.alartState)
                     .font(.system(size: 30))
-                    .foregroundColor(sensor.zAcceleration > -0.4 ? .black : .white)
+                    .foregroundColor(sensor.yAcceleration > -0.4 ? .black : .white)
                     .fontWeight(.black)
                 Text("経過時間：\(count)秒")
                     .padding(.bottom,4)
@@ -90,7 +90,7 @@ struct ContentView: View {
                 if isMeasuring {
                     sensor.stopAccelerometerUpdates()
                     timer?.invalidate()
-                    sensor.zAcceleration = 0.0
+                    sensor.yAcceleration = 0.0
 
                 } else {
                     sensor.startAccelerometerUpdates()

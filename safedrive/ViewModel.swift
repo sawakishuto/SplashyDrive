@@ -8,7 +8,7 @@
 import CoreMotion
 
 class MotionSensor: ObservableObject {
-    @Published var zAcceleration: Double = 0.0
+    @Published var yAcceleration: Double = 0.0
     @Published var extimerCount: Double = 0.0
        private var timer: Timer?
     @Published var midExtimerCount: Double = 0.0
@@ -20,8 +20,8 @@ class MotionSensor: ObservableObject {
             motionManager.accelerometerUpdateInterval = 0.1
             motionManager.startAccelerometerUpdates(to: .main) { (data, error) in
                 if let accelerationData = data?.acceleration {
-                    self.zAcceleration = accelerationData.z
-                    if self.zAcceleration <= -0.4 {
+                    self.yAcceleration = accelerationData.y
+                    if self.yAcceleration <= -0.4 {
                         if self.timer == nil {
                             self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
                                 self?.extimerCount += 0.1
@@ -31,7 +31,7 @@ class MotionSensor: ObservableObject {
                         self.timer?.invalidate()
                         self.timer = nil
                         }
-                    if self.zAcceleration <= -0.3 && self.zAcceleration > -0.4{
+                    if self.yAcceleration <= -0.3 && self.yAcceleration > -0.4{
                         if self.midtimer == nil {
                             self.midtimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
                                 self?.midExtimerCount += 0.1
