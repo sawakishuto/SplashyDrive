@@ -24,14 +24,16 @@ struct TitlePage: View {
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.vertical)
-                    Image("car")
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(isAppear ? 0.8: 0.2)
-                        .padding(.top, isAppear ? 340: 0)
+
+                Image("car")
+                    .resizable()
+                    .scaledToFit()
+                    .scaleEffect(isAppear ? 0.8: 0.2)
+                    .padding(.top, isAppear ? 340: 0)
+
                 NavigationLink {
                     ContentView()
-                }label: {
+                } label: {
                     Text("Tap To Start!!")
                         .foregroundColor(.white)
                         .fontWeight(.black)
@@ -42,16 +44,11 @@ struct TitlePage: View {
                             .repeatForever()
                             .speed(0.3)
                         )
-
                 }
             }
-            .onAppear {
-                isAppear = true
-            }
+            .onAppear {isAppear = true}
             .animation(.easeInOut(duration: 1.5), value: isAppear)
-
         }
-
     }
 }
 

@@ -24,24 +24,20 @@ enum evaluation {
     var evalname: String {
         switch self {
         case .eRank: return "🔥【初心者】"
-        case .dRank:
-            return "【過信派】"
-        case .cRank:
-            return "🚗【運転好き】"
-        case .bRank:
-            return "【安全第一】"
-        case .aRank:
-            return "👑【運転テクニシャン】"
+        case .dRank: return "【過信派】"
+        case .cRank: return "🚗【運転好き】"
+        case .bRank: return "【安全第一】"
+        case .aRank: return "👑【運転テクニシャン】"
         }
     }
 }
 struct Result: View {
-
     @State var excount: Double
     @State var midexcount: Double = 11.0
     @State var count: Double = 0.0
-    @State var delete: Bool = false
+    @State var delete: Bool = true
     @Environment(\.presentationMode) var presentation
+    
     var evaluater: evaluation {
         if (100-(30*midexcount + 100*excount)/(count)) >= 90 {
             return .aRank
@@ -111,6 +107,14 @@ struct Result: View {
             }
         }
         .animation(.easeIn(duration: 0.15), value: delete)
+        .onAppear{
+            let mainQ = DispatchQueue.main
+            mainQ.asyncAfter ( deadline: DispatchTime.now() + 3) {
+                delete = false
+                print(false)
+            }
+        }
+
     }
 }
 

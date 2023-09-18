@@ -15,8 +15,6 @@ class MotionSensor: ObservableObject {
        private var midtimer: Timer?
     private let motionManager = CMMotionManager()
 
-
-
     func startAccelerometerUpdates() {
         if motionManager.isAccelerometerAvailable {
             motionManager.accelerometerUpdateInterval = 0.1

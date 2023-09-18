@@ -21,14 +21,13 @@ struct ContentView: View {
             }
         }
         var backgroundColor: Color {
-            switch self{
+            switch self {
             case .safe: return .cyan
             case .mid: return .yellow
             case .out: return .red
             }
         }
     }
-
     @State private var isShowFullScreen = false
     @State var count: Double = 0.0
     @State var excount: Double = 0.0
@@ -36,8 +35,6 @@ struct ContentView: View {
     @State var extimer: Timer?
     @State var isMeasuring: Bool = false
     @ObservedObject var sensor = MotionSensor()
-    
-
     var pattern: Pattern {
         if sensor.zAcceleration < -0.4 {
             return .out
@@ -102,7 +99,11 @@ struct ContentView: View {
                 Button
             }
             .fullScreenCover(isPresented: $isShowFullScreen) {
-                Result(excount: sensor.extimerCount,midexcount: sensor.midExtimerCount,count: count)
+                Result(
+                    excount: sensor.extimerCount,
+                       midexcount: sensor.midExtimerCount,
+                       count: count
+                )
             }
             .onChange(of: isMeasuring, perform: { newValue in
                 if newValue == false {
@@ -110,7 +111,8 @@ struct ContentView: View {
                     print(excount)
                 }
             })
-            SwiftUI.Button{sensor.extimerCount = 0.0
+            SwiftUI.Button{
+                sensor.extimerCount = 0.0
                 sensor.midExtimerCount = 0.0
                 count = 0
             } label:{
@@ -121,10 +123,10 @@ struct ContentView: View {
         .frame(maxWidth: .infinity)
         .padding(.bottom, 100)
         .background(Image("zaseki")
-            .resizable()
-            .scaledToFill()
-            .frame(height: 1000)
-            .padding(.top, 200))
+        .resizable()
+        .scaledToFill()
+        .frame(height: 1000)
+        .padding(.top, 200))
     }
 }
 
