@@ -47,7 +47,7 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Text(String(format: "%.2f",sensor.zAcceleration))
+            Text(String(format: "%.2f",sensor.zAcceleration) + "G")
                 .font(.system(size: 30))
                 .fontWeight(.bold)
             VStack{
