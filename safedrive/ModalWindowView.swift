@@ -17,7 +17,7 @@ struct ModalWindowView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.top, 8)
                 .background(Color.cyan)
-            
+
             Text(evaluation)
                 .fontWeight(.black)
                 .padding(.vertical, 22)

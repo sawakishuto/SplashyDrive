@@ -109,7 +109,7 @@ struct Result: View {
         .animation(.easeIn(duration: 0.15), value: delete)
         .onAppear{
             let mainQ = DispatchQueue.main
-            mainQ.asyncAfter ( deadline: DispatchTime.now() + 3) {
+            mainQ.asyncAfter ( deadline: DispatchTime.now() + 1) {
                 delete = false
                 print(false)
             }
