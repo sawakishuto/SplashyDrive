@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		082C28512AB80359001946BB /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082C28502AB80359001946BB /* LaunchScreen.swift */; };
 		08A3D4652AB5C1CB009ED7B5 /* safedriveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3D4642AB5C1CB009ED7B5 /* safedriveApp.swift */; };
 		08A3D4672AB5C1CB009ED7B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3D4662AB5C1CB009ED7B5 /* ContentView.swift */; };
 		08A3D4692AB5C1CD009ED7B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08A3D4682AB5C1CD009ED7B5 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		082C284F2AB7FFAD001946BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		082C28502AB80359001946BB /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		08A3D4612AB5C1CB009ED7B5 /* safedrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = safedrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08A3D4642AB5C1CB009ED7B5 /* safedriveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = safedriveApp.swift; sourceTree = "<group>"; };
 		08A3D4662AB5C1CB009ED7B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				08A3D4D22AB73D02009ED7B5 /* ModalWindowView.swift */,
 				08A3D4942AB5C24F009ED7B5 /* ViewModel.swift */,
 				08A3D4962AB5C25C009ED7B5 /* CupView.swift */,
+				082C28502AB80359001946BB /* LaunchScreen.swift */,
 				08A3D4682AB5C1CD009ED7B5 /* Assets.xcassets */,
 				08A3D46A2AB5C1CD009ED7B5 /* Preview Content */,
 			);
@@ -274,6 +277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				082C28512AB80359001946BB /* LaunchScreen.swift in Sources */,
 				08A3D4932AB5C246009ED7B5 /* Result.swift in Sources */,
 				08A3D4912AB5C239009ED7B5 /* TitlePage.swift in Sources */,
 				08A3D4672AB5C1CB009ED7B5 /* ContentView.swift in Sources */,

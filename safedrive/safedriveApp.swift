@@ -11,7 +11,7 @@ import SwiftUI
 struct safedriveApp: App {
     var body: some Scene {
         WindowGroup {
-            TitlePage()
+            LaunchScreen()
         }
     }
 }
