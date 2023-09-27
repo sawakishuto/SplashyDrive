@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct safedriveApp: App {
+    private let persistence = PersistenceController.shared
     var body: some Scene {
         WindowGroup {
-            LaunchScreen()
+            LaunchScreen().environment(\.managedObjectContext, persistence.container.viewContext)
+
         }
     }
 }

@@ -51,7 +51,12 @@ struct Result: View {
             return .eRank
         }
     }
-    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)],
+        animation: .default
+    )
+    private var Results: FetchedResults<ResultModel>
+    @Environment(\.managedObjectContext) private var context
     var body: some View {
         ZStack{
             if delete == false {
@@ -113,6 +118,11 @@ struct Result: View {
                 delete = false
                 print(false)
             }
+            let newResultModel = ResultModel(context: context)
+            newResultModel.score = 100-(30*midexcount  + 100*excount)/(count)
+            newResultModel.largeTime = excount
+            newResultModel.smallTime = midexcount
+            try? context.save()
         }
 
     }
