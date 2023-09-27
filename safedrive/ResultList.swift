@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct ResultList: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+         entity: ResultModel.entity(),
+         sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)],
+         animation: .default
+     ) var ResultList: FetchedResults<ResultModel>
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ForEach(ResultList) { result in
+            Text(result.stringUpdatedAt)
+        }
     }
 }
 

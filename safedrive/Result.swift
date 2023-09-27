@@ -58,73 +58,76 @@ struct Result: View {
     private var Results: FetchedResults<ResultModel>
     @Environment(\.managedObjectContext) private var context
     var body: some View {
-        ZStack{
-            if delete == false {
-                ZStack(alignment: .topLeading){
-                    ModalWindowView(evaluation: evaluater.evalname,evastate: evaluater.evalState)
-                    Button{
-                        self.delete = true
-                        print(delete)
-                    } label: {
-                        Image(systemName: "xmark.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 46)
-                            .foregroundColor(.black)
-                            .zIndex(2)
+        VStack{
+            ZStack{
+                if delete == false {
+                    ZStack(alignment: .topLeading){
+                        ModalWindowView(evaluation: evaluater.evalname,evastate: evaluater.evalState)
+                        Button{
+                            self.delete = true
+                            print(delete)
+                        } label: {
+                            Image(systemName: "xmark.circle")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 46)
+                                .foregroundColor(.black)
+                                .zIndex(2)
+                        }
                     }
-                }
                     .padding(.horizontal, 30)
                     .zIndex(100)
-            }
-            Image("title")
-                .resizable()
-                .scaledToFill()
-                .edgesIgnoringSafeArea(.all)
-
-            VStack{
-                VStack{
-                    Text("-0.4G以上")
-                    Text(String(format: "%.2f", excount) + "秒")
-                        .animation(.easeIn)
                 }
-                .font(.system(size: 25,weight: .black))
-                .foregroundColor(.red)
-                .padding(.bottom,10)
+                Image("title")
+                    .resizable()
+                    .scaledToFill()
+                    .edgesIgnoringSafeArea(.all)
+
                 VStack{
-                    Text("−0.3G以上-0.4G未満")
-                    Text(String(format: "%.2f", midexcount ) + "秒")
-                        .animation(.easeIn)
-                }
-                .font(.system(size: 20,weight: .black))
-                .padding(.bottom,20)
-                Text("合計スコアは...")
-                    .font(.system(size: 25,weight: .black))
-
-                Text(String(format:"%.2f",(100-(30*midexcount  + 100*excount)/(count))))
-                    .font(.system(size: 40,weight: .black))
-
-                Button{
-                    presentation.wrappedValue.dismiss()} label: {
-                        Text("測定画面に戻る")
-                            .fontWeight(.black)
+                    VStack{
+                        Text("-0.4G以上")
+                        Text(String(format: "%.2f", excount) + "秒")
+                            .animation(.easeIn)
                     }
-            }
-        }
-        .animation(.easeIn(duration: 0.15), value: delete)
-        .onAppear{
-            let mainQ = DispatchQueue.main
-            mainQ.asyncAfter ( deadline: DispatchTime.now() + 1) {
-                delete = false
-                print(false)
-            }
-            let newResultModel = ResultModel(context: context)
-            newResultModel.score = 100-(30*midexcount  + 100*excount)/(count)
-            newResultModel.largeTime = excount
-            newResultModel.smallTime = midexcount
-            try? context.save()
-        }
+                    .font(.system(size: 25,weight: .black))
+                    .foregroundColor(.red)
+                    .padding(.bottom,10)
+                    VStack{
+                        Text("−0.3G以上-0.4G未満")
+                        Text(String(format: "%.2f", midexcount ) + "秒")
+                            .animation(.easeIn)
+                    }
+                    .font(.system(size: 20,weight: .black))
+                    .padding(.bottom,20)
+                    Text("合計スコアは...")
+                        .font(.system(size: 25,weight: .black))
 
+                    Text(String(format:"%.2f",(100-(30*midexcount  + 100*excount)/(count))))
+                        .font(.system(size: 40,weight: .black))
+
+                    Button{
+                        presentation.wrappedValue.dismiss()} label: {
+                            Text("測定画面に戻る")
+                                .fontWeight(.black)
+                        }
+                }
+            }
+            .animation(.easeIn(duration: 0.15), value: delete)
+            .onAppear{
+                let mainQ = DispatchQueue.main
+                mainQ.asyncAfter ( deadline: DispatchTime.now() + 1) {
+                    delete = false
+                    print(false)
+                }
+                let newResultModel = ResultModel(context: context)
+                newResultModel.score = 100-(30*midexcount  + 100*excount)/(count)
+                newResultModel.largeTime = excount
+                newResultModel.smallTime = midexcount
+                try? context.save()
+            }
+
+        }
+        ResultList()
     }
 }
 
