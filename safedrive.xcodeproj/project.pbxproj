@@ -12,6 +12,7 @@
 		082C28572AC3EE38001946BB /* ResultModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082C28552AC3EE38001946BB /* ResultModel+CoreDataClass.swift */; };
 		082C28582AC3EE38001946BB /* ResultModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082C28562AC3EE38001946BB /* ResultModel+CoreDataProperties.swift */; };
 		082C285A2AC3EE66001946BB /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082C28592AC3EE66001946BB /* Persistance.swift */; };
+		082C285C2AC3F987001946BB /* ResultList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 082C285B2AC3F987001946BB /* ResultList.swift */; };
 		08A3D4652AB5C1CB009ED7B5 /* safedriveApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3D4642AB5C1CB009ED7B5 /* safedriveApp.swift */; };
 		08A3D4672AB5C1CB009ED7B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A3D4662AB5C1CB009ED7B5 /* ContentView.swift */; };
 		08A3D4692AB5C1CD009ED7B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08A3D4682AB5C1CD009ED7B5 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		082C28552AC3EE38001946BB /* ResultModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResultModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		082C28562AC3EE38001946BB /* ResultModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResultModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		082C28592AC3EE66001946BB /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
+		082C285B2AC3F987001946BB /* ResultList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultList.swift; sourceTree = "<group>"; };
 		08A3D4612AB5C1CB009ED7B5 /* safedrive.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = safedrive.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08A3D4642AB5C1CB009ED7B5 /* safedriveApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = safedriveApp.swift; sourceTree = "<group>"; };
 		08A3D4662AB5C1CB009ED7B5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				082C284F2AB7FFAD001946BB /* Info.plist */,
 				082C28552AC3EE38001946BB /* ResultModel+CoreDataClass.swift */,
 				082C28562AC3EE38001946BB /* ResultModel+CoreDataProperties.swift */,
+				082C285B2AC3F987001946BB /* ResultList.swift */,
 				08A3D4642AB5C1CB009ED7B5 /* safedriveApp.swift */,
 				08A3D4662AB5C1CB009ED7B5 /* ContentView.swift */,
 				082C28522AC3ECAB001946BB /* ResultData.xcdatamodeld */,
@@ -296,6 +299,7 @@
 				08A3D4912AB5C239009ED7B5 /* TitlePage.swift in Sources */,
 				082C285A2AC3EE66001946BB /* Persistance.swift in Sources */,
 				08A3D4672AB5C1CB009ED7B5 /* ContentView.swift in Sources */,
+				082C285C2AC3F987001946BB /* ResultList.swift in Sources */,
 				08A3D4972AB5C25C009ED7B5 /* CupView.swift in Sources */,
 				08A3D4952AB5C24F009ED7B5 /* ViewModel.swift in Sources */,
 				08A3D4D32AB73D02009ED7B5 /* ModalWindowView.swift in Sources */,
