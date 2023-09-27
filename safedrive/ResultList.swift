@@ -16,7 +16,15 @@ struct ResultList: View {
      ) var ResultList: FetchedResults<ResultModel>
     var body: some View {
         ForEach(ResultList) { result in
-            Text(result.stringUpdatedAt)
+//            Text(result.stringUpdatedAt)
+            VStack{
+                Text("あなたの記録")
+                Text("0000/00/00")
+                Text(String(result.largeTime))
+                Text(String(result.smallTime))
+                Text(String(result.score))
+
+            }
         }
     }
 }

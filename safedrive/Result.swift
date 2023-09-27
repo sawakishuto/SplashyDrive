@@ -58,7 +58,7 @@ struct Result: View {
     private var Results: FetchedResults<ResultModel>
     @Environment(\.managedObjectContext) private var context
     var body: some View {
-        VStack{
+
             ZStack{
                 if delete == false {
                     ZStack(alignment: .topLeading){
@@ -127,8 +127,6 @@ struct Result: View {
             }
 
         }
-        ResultList()
-    }
 }
 
 struct Result_Previews: PreviewProvider {
