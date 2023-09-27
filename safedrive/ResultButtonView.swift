@@ -22,10 +22,12 @@ struct ResultButtonView: View {
                 ))
                 .background(Color.green)
                 .cornerRadius(50)
+                .foregroundColor(.black)
 
             Text("記録")
                 .fontWeight(.black)
                 .font(.title3)
+                .foregroundColor(.black)
         }
             }
 }

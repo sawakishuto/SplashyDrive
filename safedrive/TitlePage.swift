@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TitlePage: View {
     @State private var isAppear: Bool = false
+    @State private var showFull: Bool = false
     var body: some View {
         NavigationStack {
             ZStack{
@@ -20,9 +21,18 @@ struct TitlePage: View {
                     .shadow(radius: 8)
                     .padding(.bottom, 590)
                     .scaleEffect(isAppear ? 1.0: 0.6)
-                ResultButtonView()
-                    .zIndex(200)
-                    .scaleEffect(0.8)
+                Button {
+                    showFull = true
+                } label: {
+                    ResultButtonView()
+                        .zIndex(200)
+                        .scaleEffect(0.8)
+                        .padding(.leading, 300)
+                }
+                .fullScreenCover(isPresented: $showFull){
+                    ResultList()
+                }
+                .zIndex(200)
                 Image("start")
                     .resizable()
                     .scaledToFill()
